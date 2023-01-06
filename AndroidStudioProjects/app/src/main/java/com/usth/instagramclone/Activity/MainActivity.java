@@ -21,6 +21,9 @@ import com.usth.instagramclone.R;
 
 public class MainActivity extends AppCompatActivity {
 
+    private EditText emailField;
+    private EditText passwordField;
+
     //Random image urls below
     public static final String profilePicUrl = "https://instagram.fnag1-1.fna.fbcdn.net/vp/92a15d2c91d06d45f9a5b72ffd4cf3bd/5D84C9FD/t51.2885-19/s150x150/54731743_2011997322443409_3029283709959274496_n.jpg?_nc_ht=instagram.fnag1-1.fna.fbcdn.net";
     public static final String images[] = {profilePicUrl,
@@ -29,6 +32,36 @@ public class MainActivity extends AppCompatActivity {
             "https://pbs.twimg.com/profile_images/798351849984294912/okhePpJW.jpg",
             "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRhuaOnKGXWUAV7UMA9UhUQB66kaIne0HYKUDOgfzr8dCO2tchv"
     };
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+
+        emailField = findViewById(R.id.email_field);
+        passwordField = findViewById(R.id.password_field);
+    }
+    public void loginButtonClick(View view) {
+        String email = emailField.getText().toString();
+        String password = passwordField.getText().toString();
+
+        // Validate email and password fields
+        if (isEmailValid(email) && isPasswordValid(password)) {
+            // Perform login logic
+        } else {
+            // Show error message
+        }
+    }
+    private boolean isEmailValid(String email) {
+        // Add email validation logic here
+        return true;
+    }
+
+    private boolean isPasswordValid(String password) {
+        // Add password validation logic here
+        return true;
+    }
+
 
 
     @Override
