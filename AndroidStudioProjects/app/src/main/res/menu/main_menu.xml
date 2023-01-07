@@ -1,19 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
-<menu xmlns:android="http://schemas.android.com/apk/res/android">
-
-</menu><?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
-xmlns:app="http://schemas.android.com/apk/res-auto">
-<item
-    android:id="@+id/add"
-    android:icon="@drawable/ic_action_add"
-    app:showAsAction="always"
-    android:title="Add Post"
-    />
-<item
-    android:id="@+id/msg"
-    android:icon="@drawable/ic_action_msg"
-    app:showAsAction="always"
-    android:title="Message"
-    />
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+        <item
+            android:id="@+id/new_post"
+            android:icon="@drawable/ic_action_add"
+            app:showAsAction="always"
+            android:title="New Post"
+            />
+        <item
+            android:id="@+id/msg"
+            android:icon="@drawable/ic_action_msg"
+            app:showAsAction="ifRoom"
+            android:title="Message"
+            />
 </menu>

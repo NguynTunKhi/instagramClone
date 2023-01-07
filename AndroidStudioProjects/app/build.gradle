@@ -9,7 +9,7 @@ android {
     defaultConfig {
         applicationId "com.usth.instagramclone"
         minSdk 21
-        targetSdk 32
+        targetSdk 29
         versionCode 1
         versionName "1.0"
 

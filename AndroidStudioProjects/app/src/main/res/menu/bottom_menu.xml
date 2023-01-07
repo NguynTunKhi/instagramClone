@@ -13,7 +13,7 @@
     <item
         android:id="@+id/reels"
         android:title=""
-        android:icon="@drawable/ic_reels"
+        android:icon="@drawable/ic_action_reels"
         />
 
     <item
