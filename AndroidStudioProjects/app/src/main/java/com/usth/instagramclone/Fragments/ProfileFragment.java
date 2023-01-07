@@ -12,13 +12,19 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.usth.instagramclone.Adapter.PostAdapter;
-import com.usth.instagramclone.Adapter.StoryAdapter;
+import com.bumptech.glide.Glide;
+import com.usth.instagramclone.Adapters.PostAdapter;
+import com.usth.instagramclone.Adapters.StoryAdapter;
 import com.usth.instagramclone.Model.Post;
 import com.usth.instagramclone.Model.Story;
 import com.usth.instagramclone.R;
 
 import java.util.ArrayList;
+
+import de.hdodenhof.circleimageview.CircleImageView;
+
+import static com.usth.instagramclone.Activities.MainActivity.images;
+import static com.usth.instagramclone.Activities.MainActivity.profilePicUrl;
 
 public class ProfileFragment extends Fragment {
 
@@ -110,4 +116,4 @@ public class ProfileFragment extends Fragment {
     }
 
 
-}}
+}

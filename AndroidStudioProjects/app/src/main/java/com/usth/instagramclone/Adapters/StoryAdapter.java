@@ -14,6 +14,8 @@ import com.usth.instagramclone.R;
 
 import java.util.ArrayList;
 
+import de.hdodenhof.circleimageview.CircleImageView;
+
 public class StoryAdapter extends RecyclerView.Adapter<StoryAdapter.StoryViewHolder>{
     private Context context;
     private ArrayList<Story> stories;

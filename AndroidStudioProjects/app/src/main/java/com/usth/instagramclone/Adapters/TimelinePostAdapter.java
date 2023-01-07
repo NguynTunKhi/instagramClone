@@ -15,6 +15,8 @@ import com.usth.instagramclone.R;
 
 import java.util.ArrayList;
 
+import de.hdodenhof.circleimageview.CircleImageView;
+
 public class TimelinePostAdapter extends RecyclerView.Adapter<TimelinePostAdapter.PostViewHolder> {
 
     private Context context;

@@ -1,6 +1,5 @@
 package com.usth.instagramclone.Activities;
 
-import androidx.appcompat.app.AppCompatActivity;
 import android.annotation.SuppressLint;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
@@ -14,8 +13,9 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 
 import com.usth.instagramclone.Fragments.HomeFragment;
-import com.usth.instagramclone.Fragments.NotificationFragment;
+import com.usth.instagramclone.Fragments.NotificationsFragment;
 import com.usth.instagramclone.Fragments.ProfileFragment;
+import com.usth.instagramclone.Fragments.ReelsFragment;
 import com.usth.instagramclone.Fragments.SearchFragment;
 import com.usth.instagramclone.R;
 

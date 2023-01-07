@@ -12,6 +12,7 @@ import android.view.ViewGroup;
 
 import com.usth.instagramclone.Activities.MainActivity;
 import com.usth.instagramclone.Adapters.TimelinePostAdapter;
+import com.usth.instagramclone.Model.TimelinePost;
 import com.usth.instagramclone.R;
 
 import java.util.ArrayList;
