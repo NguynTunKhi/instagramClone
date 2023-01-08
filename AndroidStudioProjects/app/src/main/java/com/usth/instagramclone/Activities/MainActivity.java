@@ -19,6 +19,10 @@ import com.usth.instagramclone.Fragments.ReelsFragment;
 import com.usth.instagramclone.Fragments.SearchFragment;
 import com.usth.instagramclone.R;
 
+import android.view.View;
+import android.widget.EditText;
+
+import android.support.v7.app.AppCompatActivity;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -31,6 +35,8 @@ public class MainActivity extends AppCompatActivity {
             "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRhuaOnKGXWUAV7UMA9UhUQB66kaIne0HYKUDOgfzr8dCO2tchv"
     };
 
+    private EditText emailField;
+    private EditText passwordField;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
