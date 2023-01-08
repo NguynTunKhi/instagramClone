@@ -1,58 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:background="@drawable/background_image"
-    android:gravity="center">
+    android:layout_height="match_parent">
 
-    <ImageView
-        android:id="@+id/logo"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:src="@drawable/instagram_logo" />
-
-    <TextView
-        android:id="@+id/login_label"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Log in to continue"
-        android:textSize="20sp"
-        android:textColor="#fdfeff"
-        android:layout_marginTop="20dp" />
-
-    <EditText
-        android:id="@+id/username_field"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="Username"
-        android:inputType="text"
-        android:textColor="#fdfeff"
-        android:textColorHint="#fdfeff"
-        android:background="@drawable/edittext_background"
-        android:padding="10dp"
-        android:layout_marginTop="20dp" />
-
-    <EditText
-        android:id="@+id/password_field"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="Password"
-        android:inputType="textPassword"
-        android:textColor="#fdfeff"
-        android:textColorHint="#fdfeff"
-        android:background="@drawable/edittext_background"
-        android:padding="10dp"
-        android:layout_marginTop="10dp" />
-
-    <Button
-        android:id="@+id/login_button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Log in"
-        android:textColor="#fdfeff"
-        android:background="@drawable/button_background"
-        android:padding="10dp"
-        android:layout_marginTop="20dp" />
-
-</LinearLayout>
+</android.support.constraint.ConstraintLayout>

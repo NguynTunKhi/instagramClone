@@ -1,48 +1,101 @@
-import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
-import android.view.View;
-import android.widget.EditText;
+package com.usth.instagramclone.Activities;
 
+import android.content.Intent;
+import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.ProgressBar;
+import android.widget.TextView;
+import android.widget.Toast;
+
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
+
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.AuthResult;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.usth.instagramclone.R;
 
 public class LoginActivity extends AppCompatActivity {
 
-    private EditText emailField;
-    private EditText passwordField;
+    private EditText email, password;
+    private Button login;
+    private TextView forgotPassword, signUp;
+    private FirebaseAuth mAuth;
+    private ProgressDialog loadingBar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
-        // Initialize views
-        emailField = findViewById(R.id.email_field);
-        passwordField = findViewById(R.id.password_field);
+        mAuth = FirebaseAuth.getInstance();
+
+        email = findViewById(R.id.login_email);
+        password = findViewById(R.id.login_password);
+        login = findViewById(R.id.login_btn);
+        forgotPassword = findViewById(R.id.forgot_password_link);
+        signUp = findViewById(R.id.sign_up_link);
+        loadingBar = new ProgressDialog(this);
+
+        signUp.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                sendUserToRegisterActivity();
+            }
+        });
+
+        login.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                allowUserToLogin();
+            }
+        });
     }
 
-    public void loginButtonClick(View view) {
-        String email = emailField.getText().toString();
-        String password = passwordField.getText().toString();
+    private void allowUserToLogin() {
+        String userEmail = email.getText().toString();
+        String userPassword = password.getText().toString();
 
-        if (isEmailValid(email) && isPasswordValid(password)) {
-            // Send login request to server
-            sendLoginRequest(email, password);
+        if (TextUtils.isEmpty(userEmail)) {
+            Toast.makeText(this, "Please enter your email...", Toast.LENGTH_SHORT).show();
+        }
+        if (TextUtils.isEmpty(userPassword)) {
+            Toast.makeText(this, "Please enter your password...", Toast.LENGTH_SHORT).show();
         } else {
-            // Show error message
+            loadingBar.setTitle("Sign In");
+            loadingBar.setMessage("Please wait, while we are allowing you to access your account...");
+            loadingBar.show();
+            loadingBar.setCanceledOnTouchOutside(true);
+
+            mAuth.signInWithEmailAndPassword(userEmail, userPassword)
+                    .addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+                        @Override
+                        public void onComplete(@NonNull Task<AuthResult> task) {
+                            if (task.isSuccessful()) {
+                                sendUserToMainActivity();
+                                Toast.makeText(LoginActivity.this, "Logged in successfully", Toast.LENGTH_SHORT).show();
+                                loadingBar.dismiss();
+                            } else {
+                                String message = task.getException().getMessage();
+                                Toast.makeText(LoginActivity.this, "Error occured: " + message, Toast.LENGTH_SHORT).show();
+                                loadingBar.dismiss();
+                            }
+                        }
+                    });
         }
     }
 
-    private void sendLoginRequest(String email, String password) {
-        // Add code to send login request to server here
+    private void sendUserToMainActivity() {
+        Intent mainIntent = new Intent(LoginActivity.this, MainActivity.class);
+        mainIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+        startActivity(mainIntent);
+        finish();
     }
 
-    private boolean isEmailValid(String email) {
-        // Add email validation logic here
-        return true;
-    }
-
-    private boolean isPasswordValid(String password) {
-        // Add password validation logic here
-        return true;
-    }
+    private void sendUserToRegisterActivity() {
+        Intent register
 }
