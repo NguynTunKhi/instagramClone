@@ -24,7 +24,22 @@ import android.widget.EditText;
 
 import android.support.v7.app.AppCompatActivity;
 
+import com.usth.instagramclone.API.MyAPI;
+
+import retrofit2.Callback;
+import retrofit2.Response;
+import retrofit2.Call;
+
 public class MainActivity extends AppCompatActivity {
+
+    //Random image urls below
+    public static final String profilePicUrl = "https://instagram.fnag1-1.fna.fbcdn.net/vp/92a15d2c91d06d45f9a5b72ffd4cf3bd/5D84C9FD/t51.2885-19/s150x150/54731743_2011997322443409_3029283709959274496_n.jpg?_nc_ht=instagram.fnag1-1.fna.fbcdn.net";
+    public static final String images[] = {profilePicUrl,
+            "https://blog.rackspace.com/wp-content/uploads/2018/09/pumping-iron-arnold-schwarzenegger-1-1108x0-c-default.jpg",
+            "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSijnCjlpixxnEcvYeKm-1pg6s2ohuD2VMcMoIzTZInCSZ57SJN",
+            "https://pbs.twimg.com/profile_images/798351849984294912/okhePpJW.jpg",
+            "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRhuaOnKGXWUAV7UMA9UhUQB66kaIne0HYKUDOgfzr8dCO2tchv"
+    };
 
     private EditText emailField;
     private EditText passwordField;
@@ -87,5 +102,23 @@ public class MainActivity extends AppCompatActivity {
         MenuInflater inflater = getMenuInflater();
         inflater.inflate(R.menu.main_menu, menu);
         return true;
+    }
+    private void makeApiCall() {
+        MyAPI myApi = ApiClient.getMyApi();
+        Call<User> call = myApi.getUser("841043837003246?fields=id,username,profile_picture_url&access_token=IGQVJWYjRDQUN6YTh4WWpGTjdRMzdLWWNoOXBya1NqX3JpNlZAQZA3BMM1NiY1RBMlF5R2tXVmgtbkFwR2JOUWRrRDNxSDBUNFBsZAjgxZATB1Y19Md0hTVi12Wi1maW54TGhmZADZA3VFFLbFdKbmcwSUFrSQZDZD");
+        call.enqueue(new Callback<User>() {
+            @Override
+            public void onResponse(Call<User> call, Response<User> response) {
+                if (response.isSuccessful()) {
+                    User user = response.body();
+                    // Do something with the user object
+                }
+            }
+
+            @Override
+            public void onFailure(Call<User> call, Throwable t) {
+                // Handle the error
+            }
+        });
     }
 }
