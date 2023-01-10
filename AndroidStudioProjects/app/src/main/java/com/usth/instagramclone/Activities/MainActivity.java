@@ -105,7 +105,7 @@ public class MainActivity extends AppCompatActivity {
     }
     private void makeApiCall() {
         MyAPI myApi = ApiClient.getMyApi();
-        Call<User> call = myApi.getUser("841043837003246?fields=id,username,profile_picture_url&access_token=IGQVJWYjRDQUN6YTh4WWpGTjdRMzdLWWNoOXBya1NqX3JpNlZAQZA3BMM1NiY1RBMlF5R2tXVmgtbkFwR2JOUWRrRDNxSDBUNFBsZAjgxZATB1Y19Md0hTVi12Wi1maW54TGhmZADZA3VFFLbFdKbmcwSUFrSQZDZD");
+        Call<User> call = myApi.getUser("841043837003246?fields=id,username,profile_picture_url&access_token=EAAHLJkkZCZBsYBAAEQn40ee1iAyRu37wMEevAdFVHDgxdafJw2rP5uUVCh5PBgHEkkaUn72VjI4fMZCZA0Cyb54ZAGm6rpSpPplX5nP8LiQJDnqwhKR3HLycPhf7OCc5INsabi49XtuadGTwNtb9jwP2xOkefKTSendKxpuV7LoeaFDLlNJQWTw0Fj9xan7rqpPYpyF6ZCCxLuY8rZCZCViO");
         call.enqueue(new Callback<User>() {
             @Override
             public void onResponse(Call<User> call, Response<User> response) {

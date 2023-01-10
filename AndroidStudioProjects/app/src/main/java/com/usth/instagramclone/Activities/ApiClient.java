@@ -9,7 +9,7 @@ import retrofit2.converter.gson.GsonConverterFactory;
 import com.usth.instagramclone.API.MyAPI;
 
 public class ApiClient {
-    private static final String BASE_URL = "https://graph.facebook.com/";
+    private static final String BASE_URL = "https://graph.facebook.com/me";
     private static MyAPI myApi;
 
     public static MyAPI getMyApi() {

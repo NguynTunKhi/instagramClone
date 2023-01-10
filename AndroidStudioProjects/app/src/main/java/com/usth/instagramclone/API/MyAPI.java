@@ -8,7 +8,7 @@ import com.usth.instagramclone.Activities.User;
 
 
 public interface MyAPI {
-        @GET("841043837003246?fields=id,username,profile_picture_url&access_token=EAAHLJkkZCZBsYBAAPkd6hp9YUxwHciZCkv1ZABkwBkMC4rCzzb78VZAOiRZBZCoU93XSNwNoqZAhlkF88n3ZB0e2xQHKyZBTpSIMJHXxxf1ZAR1BxjpEusinbfgMlEQGoCbzUHFmUYobG5RbUZBjKZASCxsvnY04eAllZCLhCinHYsp7sK2i8RSKePXZAaLLCJx0RLzIdsOKZBxN0UawZCXRZCnLynavy4JwPKyQozquIZD")
+        @GET("841043837003246?fields=id,username,profile_picture_url&access_token=EAAHLJkkZCZBsYBAAEQn40ee1iAyRu37wMEevAdFVHDgxdafJw2rP5uUVCh5PBgHEkkaUn72VjI4fMZCZA0Cyb54ZAGm6rpSpPplX5nP8LiQJDnqwhKR3HLycPhf7OCc5INsabi49XtuadGTwNtb9jwP2xOkefKTSendKxpuV7LoeaFDLlNJQWTw0Fj9xan7rqpPYpyF6ZCCxLuY8rZCZCViO")
         Call<User> getUser(@Path("user-id") String userId);
 
 }
