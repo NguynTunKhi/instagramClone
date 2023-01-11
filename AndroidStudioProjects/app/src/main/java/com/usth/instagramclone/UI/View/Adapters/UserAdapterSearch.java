@@ -11,10 +11,10 @@ import androidx.navigation.Navigation;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.usth.instagramclone.R;
-import com.usth.instagramclone.api.ApiUtils;
-import com.usth.instagramclone.data.model.User;
+import com.usth.instagramclone.API.ApiUtils;
+import com.usth.instagramclone.Data.Model.User;
 import com.usth.instagramclone.databinding.CardUserBinding;
-import com.usth.instagramclone.ui.view.fragment.SearchFragmentDirections;
+import com.usth.instagramclone.UI.View.Fragment.SearchFragmentDirections;
 import com.squareup.picasso.Picasso;
 
 import java.util.List;

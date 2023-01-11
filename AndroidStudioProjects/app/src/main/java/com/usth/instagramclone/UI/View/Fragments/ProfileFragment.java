@@ -1,27 +1,31 @@
 package com.usth.instagramclone.UI.View.Fragments;
 
-import static com.usth.instagramclone.UI.View.Activities.MainActivity.images;
-import static com.usth.instagramclone.UI.View.Activities.MainActivity.profilePicUrl;
-
 import android.os.Bundle;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
-import android.support.v4.app.Fragment;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
-import android.support.v7.widget.StaggeredGridLayoutManager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Toast;
 
+import androidx.annotation.Nullable;
+import androidx.databinding.DataBindingUtil;
+import androidx.fragment.app.Fragment;
+import androidx.lifecycle.ViewModelProvider;
+import androidx.navigation.Navigation;
+import androidx.recyclerview.widget.GridLayoutManager;
+
+import com.usth.instagramclone.R;
+import com.usth.instagramclone.API.ApiUtils;
+import com.usth.instagramclone.Data.Model.User;
+import com.usth.instagramclone.databinding.FragmentProfileBinding;
+import com.usth.instagramclone.UI.View.Adapters.PostAdapterProfile;
+import com.usth.instagramclone.UI.ViewModel.ProfileViewModel;
+import com.usth.instagramclone.LocalDB.Session;
+import com.squareup.picasso.Picasso;
+
+
 import com.bumptech.glide.Glide;
-import com.usth.instagramclone.UI.View.Adapters.StoryAdapter;
-import com.usth.instagramclone.Data.Model.Post;
-import com.usth.instagramclone.Data.Model.Story;
 import com.usth.instagramclone.R;
 
-import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 

@@ -13,6 +13,24 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Toast;
 
+import androidx.activity.result.ActivityResultLauncher;
+import androidx.activity.result.contract.ActivityResultContracts;
+import androidx.annotation.Nullable;
+import androidx.core.content.ContextCompat;
+import androidx.databinding.DataBindingUtil;
+import androidx.fragment.app.Fragment;
+import androidx.lifecycle.ViewModelProvider;
+
+import com.google.android.material.snackbar.Snackbar;
+
+import com.usth.instagramclone.R;
+import com.usth.instagramclone.API.ApiUtils;
+import com.usth.instagramclone.Data.Model.User;
+import com.usth.instagramclone.databinding.FragmentSettingsBinding;
+import com.usth.instagramclone.LocalDB.Session;
+import com.usth.instagramclone.UI.ViewModel.SettingsViewModel;
+import com.squareup.picasso.Picasso;
+
 import java.io.File;
 import java.util.Objects;
 

@@ -6,6 +6,18 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Toast;
 
+import androidx.annotation.Nullable;
+import androidx.databinding.DataBindingUtil;
+import androidx.fragment.app.Fragment;
+import androidx.lifecycle.ViewModelProvider;
+
+import com.usth.instagramclone.R;
+import com.usth.instagramclone.Data.Model.Post;
+import com.usth.instagramclone.databinding.FragmentFeedBinding;
+import com.usth.instagramclone.UI.View.Activity.MainActivity;
+import com.usth.instagramclone.UI.View.Adapter.PostAdapterFeed;
+import com.usth.instagramclone.UI.ViewModel.FeedViewModel;
+
 import java.util.List;
 
 @AndroidEntryPoint

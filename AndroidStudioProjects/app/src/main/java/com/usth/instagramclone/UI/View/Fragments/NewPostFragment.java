@@ -13,6 +13,19 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Toast;
 
+import androidx.activity.result.ActivityResultLauncher;
+import androidx.activity.result.contract.ActivityResultContracts;
+import androidx.annotation.Nullable;
+import androidx.core.content.ContextCompat;
+import androidx.databinding.DataBindingUtil;
+import androidx.fragment.app.Fragment;
+import androidx.lifecycle.ViewModelProvider;
+import androidx.navigation.Navigation;
+
+import com.usth.instagramclone.R;
+import com.usth.instagramclone.UI.ViewModel.NewPostViewModel;
+import com.usth.instagramclone.databinding.FragmentNewPostBinding;
+
 import java.io.File;
 
 @AndroidEntryPoint

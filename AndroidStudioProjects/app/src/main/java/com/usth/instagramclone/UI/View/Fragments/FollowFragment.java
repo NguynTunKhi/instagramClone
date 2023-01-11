@@ -1,9 +1,21 @@
 package com.usth.instagramclone.UI.View.Fragments;
 
 import android.os.Bundle;
+
+import androidx.annotation.Nullable;
+import androidx.databinding.DataBindingUtil;
+import androidx.fragment.app.Fragment;
+import androidx.lifecycle.ViewModelProvider;
+
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+
+import com.usth.instagramclone.R;
+import com.usth.instagramclone.Data.Model.User;
+import com.usth.instagramclone.databinding.FragmentFollowBinding;
+import com.usth.instagramclone.UI.View.Adapter.UserAdapterFollow;
+import com.usth.instagramclone.UI.ViewModel.FollowViewModel;
 
 import java.util.Arrays;
 import java.util.List;

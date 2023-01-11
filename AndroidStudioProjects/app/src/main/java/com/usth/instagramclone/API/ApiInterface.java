@@ -1,5 +1,15 @@
 package com.usth.instagramclone.API;
 
+import com.usth.instagramclone.Data.Model.Comment;
+import com.usth.instagramclone.Data.Model.Post;
+import com.usth.instagramclone.Data.Model.User;
+import com.usth.instagramclone.Data.Response.ApiResponse;
+import com.usth.instagramclone.Data.Response.NotificationListResponse;
+import com.usth.instagramclone.Data.Response.PostListResponse;
+import com.usth.instagramclone.Data.Response.PostResponse;
+import com.usth.instagramclone.Data.Response.UserListResponse;
+import com.usth.instagramclone.Data.Response.UserResponse;
+
 import okhttp3.MultipartBody;
 import okhttp3.RequestBody;
 import retrofit2.Call;

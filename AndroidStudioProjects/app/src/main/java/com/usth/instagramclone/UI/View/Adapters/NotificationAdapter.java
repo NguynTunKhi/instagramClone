@@ -5,6 +5,18 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import androidx.annotation.NonNull;
+import androidx.databinding.DataBindingUtil;
+import androidx.navigation.Navigation;
+import androidx.recyclerview.widget.RecyclerView;
+
+import com.usth.instagramclone.R;
+import com.usth.instagramclone.API.ApiUtils;
+import com.usth.instagramclone.Data.Model.Notification;
+import com.usth.instagramclone.UI.View.Fragment.NotificationFragmentDirections;
+
+import com.squareup.picasso.Picasso;
+
 import java.util.List;
 
 public class NotificationAdapter extends RecyclerView.Adapter<NotificationAdapter.NotificationViewHolder> {

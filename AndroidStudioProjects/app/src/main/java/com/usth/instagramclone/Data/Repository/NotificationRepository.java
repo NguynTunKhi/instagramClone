@@ -4,9 +4,11 @@ import android.util.Log;
 
 import androidx.lifecycle.MutableLiveData;
 
-import com.usth.instagramclone.API.ApiUtils;
-import com.usth.instagramclone.API.UserService;
-import com.usth.instagramclone.Data.Model.Notification;
+import com.usth.instagramclone.API.ApiInterface;
+import com.usth.instagramclone.Data.ModelNotification;
+import com.usth.instagramclone.Data.Response.ApiResponse;
+import com.usth.instagramclone.Data.Response.NotificationListResponse;
+import com.usth.instagramclone.localdb.Session;
 
 
 import java.util.ArrayList;

@@ -1,7 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <import type="android.view.View"/>
+        <import type="com.usth.instagramclone.localdb.Session" />
+
+        <variable name="postAdapterFeed"
+            type="com.usth.instagramclone.UI.View.Adapters.PostAdapterFeed" />
+
+        <variable name="postAdapterSaved"
+            type="com.usth.instagramclone.UI.View.Adapters.PostAdapterSaved" />
+
+        <variable name="post"
+            type="com.usth.instagramclone.Data.Model.Post" />
+    </data>
 
     <LinearLayout
         android:layout_width="match_parent"

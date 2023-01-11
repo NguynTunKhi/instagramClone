@@ -1,7 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent">
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <import type="android.view.View"/>
+        <import type="com.usth.instagramclone.localdb.Session" />
+
+        <variable name="commentAdapter"
+            type="com.usth.instagramclone.UI.View.Adapter.CommentAdapter" />
+
+        <variable name="comment"
+            type="com.usth.instagramclone.Data.Model.Comment" />
+    </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/cardComment"
@@ -75,3 +86,4 @@
             app:layout_constraintVertical_bias="0.5"
             app:srcCompat="@drawable/ic_popup_menu" />
     </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

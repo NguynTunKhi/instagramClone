@@ -1,244 +1,208 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.v4.widget.NestedScrollView android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    xmlns:android="http://schemas.android.com/apk/res/android" >
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
 
-    <LinearLayout android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        xmlns:app="http://schemas.android.com/apk/res-auto"
-        android:orientation="vertical"
-        xmlns:android="http://schemas.android.com/apk/res/android">
+    <data>
+        <import type="android.view.View"/>
+        <import type="com.serhat.instagram.localdb.Session"/>
 
-        <LinearLayout
+        <variable name="profileFragment"
+            type="com.usth.instagramclone.UI.View.Fragments.ProfileFragment" />
+
+        <variable name="postAdapter"
+            type="com.usth.instagramclone.UI.View.Adapters.PostAdapterProfile" />
+
+        <variable name="user"
+            type="com.usth.instagramclone.Data.Model.User" />
+
+        <variable name="postCount"
+            type="Integer" />
+    </data>
+
+    <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+        android:id="@+id/frgProfileSwipeRefresh"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.5">
+
+        <androidx.core.widget.NestedScrollView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:padding="24dp"
-            >
-
-
-            <de.hdodenhof.circleimageview.CircleImageView
-                xmlns:app="http://schemas.android.com/apk/res-auto"
-                android:id="@+id/profile_image"
-                android:layout_width="80dp"
-                android:layout_height="80dp"
-                app:civ_border_width="2dp"
-                app:elevation="8dp"
-                android:layout_marginEnd="20dp"
-                app:civ_border_color="#e6d8d2"/>
+            tools:context=".UI.View.Fragments.ProfileFragment">
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="80dp"
-                android:orientation="vertical"
-                >
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:textColor="@color/black"
-                    android:text="schwarzenegger"
-                    android:textStyle="bold"
-                    android:textSize="15sp"
-                    android:layout_weight="1"
-                    android:maxLines="1"
-                    />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Fitness"
-                    android:layout_weight="1"
-                    android:maxLines="1"
-                    />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Mr Olympia"
-                    android:layout_weight="1"
-                    android:maxLines="1"
-                    />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="www.arnold.com"
-                    android:layout_weight="1"
-                    android:maxLines="1"
-                    />
-
-            </LinearLayout>
-
-
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="1dp"
-            android:background="#ebebeb"
-            android:orientation="horizontal"
-            android:layout_marginStart="24dp"
-            android:layout_marginEnd="24dp"
-            />
-
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:paddingStart="24dp"
-            android:paddingEnd="24dp"
-            android:paddingTop="16dp"
-            android:paddingBottom="16dp"
-            android:gravity="center"
-            >
-
-
-            <LinearLayout
-                android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:layout_weight="1"
-                android:layout_gravity="center"
-                android:gravity="center"
-                >
+                android:orientation="vertical">
 
-                <TextView
-                    android:layout_width="wrap_content"
+                <LinearLayout
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:textStyle="bold"
-                    android:textColor="@color/black"
-                    android:text="700"
-                    android:textSize="15sp"
-                    />
+                    android:orientation="vertical"
+                    android:layout_marginHorizontal="16dp"
+                    android:layout_marginTop="8dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.5"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent">
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Posts"
-                    android:textAlignment="center"
-                    android:layout_marginTop="4dp"
-                    android:textSize="12sp"
-                    />
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:weightSum="3"
+                        android:orientation="horizontal">
 
+                        <com.google.android.material.imageview.ShapeableImageView
+                            android:id="@+id/frgProfileImgUserPhoto"
+                            android:layout_width="100dp"
+                            android:layout_height="100dp"
+                            android:adjustViewBounds="true"
+                            android:padding="2dp"
+                            android:scaleType="fitXY"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:layout_constraintVertical_bias="0.5"
+                            app:shapeAppearanceOverlay="@style/ShapeAppearance.App.CircleImageView"
+                            app:strokeColor="@color/black"
+                            app:strokeWidth="2dp"
+                            tools:srcCompat="@tools:sample/backgrounds/scenic" />
+
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1"
+                            android:gravity="center"
+                            android:orientation="vertical">
+
+                            <TextView
+                                android:id="@+id/frgProfileLblPosts"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:textSize="22sp"
+                                android:textStyle="bold"
+                                android:text="@{String.valueOf(postCount)}" />
+
+                            <TextView
+                                android:id="@+id/frgProfilePhPosts"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="@string/fragment_profile_ph_posts"
+                                android:textSize="16sp" />
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1"
+                            android:gravity="center"
+                            android:onClick="@{() -> (user.user_profile_private == 0 || user.user_id == Session.ACTIVE_USER.user_id) ? profileFragment.navToFollow(frgProfileLblFollowers, user.followers) : profileFragment.showProfilePrivateError()}"
+                            android:orientation="vertical">
+
+                            <TextView
+                                android:id="@+id/frgProfileLblFollowers"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:textSize="22sp"
+                                android:textStyle="bold"
+                                android:text="@{String.valueOf(user.followers.size())}" />
+
+                            <TextView
+                                android:id="@+id/frgProfilePhFollowers"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="@string/fragment_profile_ph_followers"
+                                android:textSize="16sp" />
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1"
+                            android:gravity="center"
+                            android:onClick="@{() -> (user.user_profile_private == 0 || user.user_id == Session.ACTIVE_USER.user_id) ? profileFragment.navToFollow(frgProfileLblFollowing, user.following) : profileFragment.showProfilePrivateError()}"
+                            android:orientation="vertical">
+
+                            <TextView
+                                android:id="@+id/frgProfileLblFollowing"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:textSize="22sp"
+                                android:textStyle="bold"
+                                android:text="@{String.valueOf(user.following.size())}" />
+
+                            <TextView
+                                android:id="@+id/frgProfilePhFollowing"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:textSize="16sp"
+                                android:text="@string/fragment_profile_ph_following" />
+                        </LinearLayout>
+                    </LinearLayout>
+
+                    <TextView
+                        android:id="@+id/frgProfileLblUserName"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@{(user.user_fullname.trim().isEmpty()) ? user.user_name : @string/fragment_profile_lbl_name(user.user_fullname, user.user_name)}"
+                        android:textSize="16sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/frgProfileLblUserBio"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:visibility="@{(user.user_bio.trim().isEmpty()) ? View.GONE : View.VISIBLE}"
+                        android:text="@{user.user_bio}"
+                        android:textSize="16sp" />
+
+                    <Button
+                        android:id="@+id/frgProfileBtnFollow"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="4dp"
+                        android:onClick="@{() -> Session.followingListContains(user.user_id) ? profileFragment.unfollow(user.user_id) : profileFragment.follow(user)}"
+                        android:visibility="@{(user.user_id == Session.ACTIVE_USER.user_id) ? View.GONE : View.VISIBLE}"
+                        android:text="@{Session.followingListContains(user.user_id) ? @string/btn_following : @string/btn_follow}"
+                        android:backgroundTint="@{Session.followingListContains(user.user_id) ? @color/md_blue_800 : @color/md_blue_400}"
+                        style="@style/ButtonBlue" />
+                </LinearLayout>
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginTop="8dp">
+
+                    <TextView
+                        android:id="@+id/frgProfileLblMsgPrivate"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/fragment_profile_msg_private"
+                        style="@style/MessageText"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/frgProfilerecyclerView"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:adapter="@{postAdapter}"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintHorizontal_bias="0.5"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintVertical_bias="0.5" />
+                </androidx.constraintlayout.widget.ConstraintLayout>
             </LinearLayout>
-
-            <LinearLayout
-                android:gravity="center"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:layout_weight="1"
-                android:layout_gravity="center"
-                >
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:textStyle="bold"
-                    android:textColor="@color/black"
-                    android:text="18m"
-                    android:textSize="15sp"
-                    />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Followers"
-                    android:textAlignment="center"
-                    android:layout_marginTop="4dp"
-                    android:textSize="12sp"
-                    />
-
-            </LinearLayout>
-
-            <LinearLayout
-                android:gravity="center"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:layout_weight="1"
-                android:layout_gravity="center"
-                >
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:textStyle="bold"
-                    android:textColor="@color/black"
-                    android:text="10"
-                    android:textSize="15sp"
-                    />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Following"
-                    android:textAlignment="center"
-                    android:layout_marginTop="4dp"
-                    android:textSize="12sp"
-                    />
-
-            </LinearLayout>
-
-
-        </LinearLayout>
-
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="1dp"
-            android:background="#ebebeb"
-            android:orientation="horizontal"
-            android:layout_marginStart="24dp"
-            android:layout_marginEnd="24dp"
-            />
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="24dp"
-            android:layout_marginEnd="24dp"
-            android:layout_marginTop="24dp"
-            android:orientation="horizontal"
-            >
-
-
-
-
-            <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:src="@drawable/ic_action_msg"
-                android:layout_gravity="center"
-                android:layout_margin="16dp"
-                />
-
-        </LinearLayout>
-
-
-        <android.support.v7.widget.RecyclerView
-            android:id="@+id/rvStories"
-            android:layout_width="match_parent"
-            android:layout_marginTop="24dp"
-            android:layout_marginBottom="24dp"
-            android:layout_height="wrap_content"/>
-
-
-        <android.support.v7.widget.RecyclerView
-            android:id="@+id/rvPosts"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:padding="2dp"
-            android:layout_marginStart="6dp"
-            />
-
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="98dp"
-            />
-
-    </LinearLayout>
-
-</android.support.v4.widget.NestedScrollView>
+        </androidx.core.widget.NestedScrollView>
+    </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
+</layout>

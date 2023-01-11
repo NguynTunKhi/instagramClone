@@ -7,6 +7,17 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Toast;
 
+import androidx.annotation.Nullable;
+import androidx.databinding.DataBindingUtil;
+import androidx.fragment.app.Fragment;
+import androidx.lifecycle.ViewModelProvider;
+import androidx.navigation.Navigation;
+
+import com.usth.instagramclone.R;
+import com.usth.instagramclone.UI.ViewModel.SignInViewModel;
+import com.usth.instagramclone.databinding.FragmentSignInBinding;
+import com.usth.instagramclone.UI.View.Activity.MainActivity;
+
 @AndroidEntryPoint
 public class SignInFragment extends Fragment {
     private FragmentSignInBinding binding;

@@ -12,6 +12,25 @@ import android.view.ViewGroup;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import androidx.annotation.Nullable;
+import androidx.appcompat.app.AlertDialog;
+import androidx.appcompat.widget.PopupMenu;
+import androidx.databinding.DataBindingUtil;
+import androidx.fragment.app.Fragment;
+import androidx.lifecycle.ViewModelProvider;
+import androidx.navigation.Navigation;
+
+import com.usth.instagramclone.API.ApiUtils;
+import com.usth.instagramclone.Data.Model.Post;
+import com.usth.instagramclone.Data.Model.User;
+import com.usth.instagramclone.LocalDB.Session;
+import com.usth.instagramclone.R;
+import com.usth.instagramclone.UI.View.Activity.MainActivity;
+import com.usth.instagramclone.UI.View.Adapters.CommentAdapter;
+import com.usth.instagramclone.UI.ViewModel.PostDetailsViewModel;
+import com.usth.instagramclone.databinding.FragmentPostDetailsBinding;
+import com.squareup.picasso.Picasso;
+
 import java.util.Iterator;
 import java.util.List;
 

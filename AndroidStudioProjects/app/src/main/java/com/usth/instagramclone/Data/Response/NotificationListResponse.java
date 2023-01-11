@@ -1,6 +1,7 @@
 package com.usth.instagramclone.Data.Response;
 
 import com.google.gson.annotations.SerializedName;
+import com.usth.instagramclone.Model.Data.Notification;
 
 import java.util.List;
 

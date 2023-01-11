@@ -6,6 +6,20 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import androidx.annotation.NonNull;
+import androidx.databinding.DataBindingUtil;
+import androidx.navigation.Navigation;
+import androidx.recyclerview.widget.RecyclerView;
+
+import com.usth.instagramclone.R;
+import com.usth.instagramclone.API.ApiUtils;
+import com.usth.instagramclone.Data.Model.User;
+import com.usth.instagramclone.databinding.CardUserBinding;
+import com.usth.instagramclone.UI.View.Fragment.FollowFragmentDirections;
+import com.usth.instagramclone.UI.Viewmodel.FollowViewModel;
+import com.squareup.picasso.Picasso;
+import com.usth.instagramclone.localdb.Session;
+
 import java.util.Iterator;
 import java.util.List;
 
