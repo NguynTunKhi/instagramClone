@@ -15,7 +15,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
 
-        <activity android:name=".Activities.LoginActivity"
+        <activity android:name=".UI.View.Activities.LoginActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -28,7 +28,7 @@
                 android:value="" />
         </activity>
 
-        <activity android:name=".Activities.MainActivity"
+        <activity android:name=".UI.View.Activities.MainActivity"
             android:exported="true">
             <meta-data
                 android:name="android.app.lib_name"
